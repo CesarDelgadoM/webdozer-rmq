@@ -1,0 +1,17 @@
+version: "3.0"
+
+services:
+  broker-rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: broker-rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ${HOME}/dev-rabbitmq/data/:/var/lib/rabbitmq
+      #- ${HOME}/dev-rabbitmq/log/:/var/log/rabbitmq
+    restart: always
+volumes:
+  logs:
+    name: log-rabbitmq
+    driver: local
