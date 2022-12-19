@@ -4,9 +4,9 @@
 
 Application to extract urls using different data types of redis, consist of a producer and a consumer with objective of filter the searchs words and write a file with the urls found.
 
-## Deploy RabbitMQ
+## Deploy
 
-In the deployments folder is the docker compose file for the image RabbitMQ
+In the deployments folder is the docker compose file for the image RabbitMQ and Redis database
 
 ```bash
 docker-compose up
