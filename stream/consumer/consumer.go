@@ -69,7 +69,7 @@ func (c *Consumer) Consume() {
 								url := string(msg.Body)
 								for _, word := range searchWords {
 									if strings.Contains(url, word) {
-										log.Printf("Writing message from topic %s\n", topic)	
+										log.Printf("Writing message from topic %s\n", topic)
 										file.WriteString(url + "\n")
 									}
 								}
@@ -83,7 +83,7 @@ func (c *Consumer) Consume() {
 								}
 								return
 							}
-							time.Sleep(1 * time.Second)
+							time.Sleep(1 * time.Millisecond)
 						}
 					}(i + 1)
 				}

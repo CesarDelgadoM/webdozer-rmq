@@ -8,9 +8,17 @@ services:
       - 5672:5672
       - 15672:15672
     volumes:
-      - ${HOME}/dev-rabbitmq/data/:/var/lib/rabbitmq
-      #- ${HOME}/dev-rabbitmq/log/:/var/log/rabbitmq
+      - ${HOME}/volumes/dev-rabbitmq/data:/var/lib/rabbitmq
     restart: always
+  redis-db:
+    image: redis:6-alpine
+    container_name: redis-db
+    restart: always
+    ports:
+      - 6379:6379
+    command: redis-server --save 60 1 --loglevel warning
+    volumes:
+      - ${HOME}/volumes/redis-db/data:/data
 volumes:
   logs:
     name: log-rabbitmq

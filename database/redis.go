@@ -22,7 +22,7 @@ func NewRedisPool(addr string, procs int) *RedisPool {
 
 	pong, err := client.Ping(context.Background()).Result()
 	if err != nil {
-		log.Fatal("Failed connect to redis")
+		log.Fatal("Failed connect to redis:", err)
 	}
 
 	log.Println("redis:" + pong + "!")
